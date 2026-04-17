@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlueprintClasses>
+        <Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>WaterFuel</SubtypeId>
+            </Id>
+            <DisplayName>WaterFuel</DisplayName>
+            <Description>Description_BlueprintClass_WaterFuel</Description>
+			<Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
+			<HighlightIcon>Textures\GUI\Icons\ore_H2O_ice.dds</HighlightIcon>
+			<FocusIcon>Textures\GUI\Icons\ore_H2O_ice.dds</FocusIcon>
+			<InputConstraintIcon>Textures\GUI\Icons\filter_oxygen.dds</InputConstraintIcon>
+			<InputConstraintDescription>ToolTipItemFilter_OxygenBottlesInput</InputConstraintDescription>
+        </Class>
+    </BlueprintClasses>
+    <BlueprintClassEntries>
+        <Entry Class="WaterFuel" BlueprintSubtypeId="WaterFuelToOxygen" />
+    </BlueprintClassEntries>
+</Definitions>

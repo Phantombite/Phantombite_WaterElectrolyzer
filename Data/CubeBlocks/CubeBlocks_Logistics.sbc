@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CubeBlocks>
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>WaterTankSmall</SubtypeId>
+            </Id>
+            <DisplayName>WaterTank</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTankSmall.dds</Icon>
+            <Description>Description_WaterTank</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\OxygenStorage.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="LargeTube" Count="8" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Computer" Count="8" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Left" StartX="0" StartY="1" EndX="3" EndY="2" />
+                <MountPoint Side="Right" StartX="0" StartY="1" EndX="3" EndY="2" />
+                <MountPoint Side="Top" StartX="0" StartY="0.6" EndX="1.1" EndY="1.3" />
+                <MountPoint Side="Top" StartX="1.9" StartY="0.6" EndX="3" EndY="1.3" />
+                <MountPoint Side="Top" StartX="0" StartY="2.4" EndX="3" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="1.7" EndX="1.1" EndY="2.4" />
+                <MountPoint Side="Bottom" StartX="1.9" StartY="1.7" EndX="3" EndY="2.4" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="0.6" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="3" EndY="3" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\OxygenStorageConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\OxygenStorageConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeWaterTank</BlockPairName>
+            <Center x="1" y="1" z="1" />
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <Capacity>50000</Capacity>
+            <InventoryMaxVolume>4</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </StoredGasId>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.0125</LeakPercent>
+            <GasExplosionMaxRadius>4</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>50000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Small</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>SmallWaterTankSmall</SubtypeId>
+            </Id>
+            <DisplayName>SmallWaterTank</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
+            <Description>Description_WaterTank</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="2" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\SmallOxygenTank.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="1" />
+                <Component Subtype="LargeTube" Count="1" />
+                <Component Subtype="SmallTube" Count="1" />
+                <Component Subtype="Computer" Count="4" />
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="SteelPlate" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Back" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Left" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Right" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\SmallOxygenTankConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SmallOxygenTankConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WaterTank</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <Capacity>3000</Capacity>
+            <InventoryMaxVolume>0.12</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </StoredGasId>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.025</LeakPercent>
+            <GasExplosionMaxRadius>2</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>3000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Small</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+        
+        <!--<Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>< />
+            </Id>
+            <DisplayName>SmallWaterTank</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
+            <Description>Description_WaterTank</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="2" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\OxygenStorage.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="60" />
+                <Component Subtype="LargeTube" Count="40" />
+                <Component Subtype="SmallTube" Count="60" />
+                <Component Subtype="Computer" Count="8" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" Default="true" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.3" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0.9" EndX="0.9" EndY="1.1" />
+                <MountPoint Side="Front" StartX="0.1" StartY="1.7" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Back" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.3" />
+                <MountPoint Side="Back" StartX="0.1" StartY="0.9" EndX="0.9" EndY="1.1" />
+                <MountPoint Side="Back" StartX="0.1" StartY="1.7" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Left" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.3" />
+                <MountPoint Side="Left" StartX="0.1" StartY="0.9" EndX="0.9" EndY="1.1" />
+                <MountPoint Side="Left" StartX="0.1" StartY="1.7" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Right" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.3" />
+                <MountPoint Side="Right" StartX="0.1" StartY="0.9" EndX="0.9" EndY="1.1" />
+                <MountPoint Side="Right" StartX="0.1" StartY="1.7" EndX="0.9" EndY="1.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\OxygenStorageConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\OxygenStorageConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\OxygenStorageConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WaterTank</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <Capacity>100000</Capacity>
+            <InventoryMaxVolume>4</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </StoredGasId>
+            <BuildTimeSeconds>32</BuildTimeSeconds>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.005</LeakPercent>
+            <GasExplosionMaxRadius>10</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>100000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Large</GasExplosionEffect>
+            <IsAirTight>false</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>-->
+
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>LargeBlockWaterTankLab</SubtypeId>
+            </Id>
+            <DisplayName>SmallWaterTankLab</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Lab_SmallOxygenTank.dds</Icon>
+            <Description>Description_WaterTank</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Lab_SmallOxygenTank.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="60" />
+                <Component Subtype="LargeTube" Count="40" />
+                <Component Subtype="SmallTube" Count="60" />
+                <Component Subtype="Computer" Count="8" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="2" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" />
+                <MountPoint Side="Top" StartX="1.4" StartY="0.4" EndX="1.6" EndY="0.6" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="2" EndY="0.1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="2" EndY="0.1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Lab_SmallOxygenTankConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Lab_SmallOxygenTankConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Lab_SmallOxygenTankConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WaterTankLab</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <Capacity>100000</Capacity>
+            <InventoryMaxVolume>4</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </StoredGasId>
+            <BuildTimeSeconds>32</BuildTimeSeconds>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.005</LeakPercent>
+            <GasExplosionMaxRadius>10</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>100000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Large</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+			<DLC>Fieldwork</DLC>
+        </Definition>
+    </CubeBlocks>
+</Definitions>

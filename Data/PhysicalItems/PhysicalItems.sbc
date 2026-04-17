@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <PhysicalItems>
+        <PhysicalItem>
+            <Id>
+                <TypeId>Ore</TypeId>
+                <SubtypeId>WaterFuel</SubtypeId>
+            </Id>
+            <DisplayName>WaterFuel</DisplayName>
+            <Icon>Textures\GUI\Icons\component\OxygenBottleComponent.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.37</Volume>
+            <Model>Models\Components\OxygenTankItem.mwm</Model>
+            <PhysicalMaterial>Stone</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Ice</IconSymbol>
+
+            <MinimalPricePerUnit>50</MinimalPricePerUnit>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+    </PhysicalItems>
+</Definitions>
