@@ -8,6 +8,7 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
+using VRage.Utils;
 
 namespace Phantombite_WaterElectrolyzer
 {
@@ -107,7 +108,11 @@ namespace Phantombite_WaterElectrolyzer
                 return;
             }
 
-            _electrolyzer.Enabled = _motor.Enabled;
+            _electrolyzer.Enabled             = _motor.Enabled;
+            _electrolyzer.AutoRefill          = false;
+            _electrolyzer.UseConveyorSystem   = false;
+            _electrolyzer.ShowInInventory     = false;
+            _electrolyzer.ShowInToolbarConfig = false;
         }
 
         private void OnMotorWorkingChanged(IMyCubeBlock block)
@@ -174,9 +179,15 @@ namespace Phantombite_WaterElectrolyzer
 
                 foreach (var control in controls)
                 {
-                    if (control.Id != "OnOff") continue;
-                    control.Visible = b => b.BlockDefinition.SubtypeId != "WaterElectrolyzerOutput";
-                    break;
+                    switch (control.Id)
+                    {
+                        case "OnOff":
+                        case "Auto-Refill":
+                        case "UseConveyor":
+                        case "Refill":
+                            control.Visible = b => b.BlockDefinition.SubtypeId != "WaterElectrolyzerOutput";
+                            break;
+                    }
                 }
 
                 _controlsHidden = true;

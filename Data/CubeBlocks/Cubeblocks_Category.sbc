@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CategoryClasses>
+        <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+            <Id>
+                <TypeId>GuiBlockCategoryDefinition</TypeId>
+                <SubtypeId/>
+            </Id>
+            <DisplayName>WaterElectrolyzer</DisplayName>
+            <Name>WaterElectrolyzer</Name>
+            <ItemIds>
+                <string>LargeBlockHydrogenFarm</string>
+                <string>LargeBlockWaterFarmReskin</string>
+                <string>LargeBlockWaterFarm</string>
+                <string>LargeBlockWaterFarmReskin</string>
+                <string>WaterElectrolyzerInput</string>
+                <string>WaterElectrolyzerOutput</string>
+                <string>WaterTankSmall</string>
+                <string>SmallWaterTankSmall</string>
+                <string>WaterTank</string>
+                <string>LargeBlockWaterTankLab</string>
+            </ItemIds>
+        </Category>
+    </CategoryClasses>
+</Definitions>

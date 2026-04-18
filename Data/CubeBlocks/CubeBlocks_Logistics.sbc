@@ -152,10 +152,10 @@
             </TieredUpdateTimes>
         </Definition>
         
-        <!--<Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
             <Id>
                 <TypeId>OxygenTank</TypeId>
-                <SubtypeId>< />
+                <SubtypeId>WaterTank</SubtypeId>
             </Id>
             <DisplayName>SmallWaterTank</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
@@ -233,7 +233,7 @@
                 <unsignedInt>300</unsignedInt>
                 <unsignedInt>600</unsignedInt>
             </TieredUpdateTimes>
-        </Definition>-->
+        </Definition>
 
         <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
             <Id>
