@@ -55,7 +55,7 @@ namespace Phantombite_WaterElectrolyzer
             try
             {
                 System.Collections.Generic.List<IMyTerminalControl> controls;
-                MyAPIGateway.TerminalControls.GetControls<Sandbox.ModAPI.IMyHydrogenEngine>(out controls);
+                MyAPIGateway.TerminalControls.GetControls<Sandbox.ModAPI.IMyFunctionalBlock>(out controls);
                 foreach (var ctrl in controls)
                 {
                     if (ctrl.Id == "OnOff")
