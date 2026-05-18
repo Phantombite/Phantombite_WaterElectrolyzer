@@ -16,6 +16,8 @@ namespace Phantombite_WaterElectrolyzer
     public class WaterElectrolyzer_MotorLogic : MyGameLogicComponent
     {
         private const string ELECTROLYZER_SUBTYPE = "WaterElectrolyzerOutput";
+        private const long   LOG_CHANNEL      = 1995999L;
+        private const string MOD_NAME         = "Phantombite_WaterElectrolyzer";
         private const string ITEM_SUBTYPE         = "WaterFuel";
         private const float  WATER_PER_SECOND     = 10f;
         private const int    TICK_INTERVAL        = 60;
@@ -27,6 +29,7 @@ namespace Phantombite_WaterElectrolyzer
         private int                _startDelay = 30;
 
         private readonly List<IMySlimBlock> _reusableNeighbours = new List<IMySlimBlock>();
+        private bool _disabledByPerf = false; // Wurde der Motor durch PerfLevel deaktiviert?
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
@@ -48,6 +51,23 @@ namespace Phantombite_WaterElectrolyzer
             _motor.IsWorkingChanged        += OnMotorWorkingChanged;
             _motor.EnabledChanged          += OnMotorEnabledChanged;
 
+            // On/Off Control ausgr auen wenn PerfLevel >= 3
+            try
+            {
+                System.Collections.Generic.List<IMyTerminalControl> controls;
+                MyAPIGateway.TerminalControls.GetControls<Sandbox.ModAPI.IMyHydrogenEngine>(out controls);
+                foreach (var ctrl in controls)
+                {
+                    if (ctrl.Id == "OnOff")
+                    {
+                        ctrl.Enabled = b => b.BlockDefinition.SubtypeId != "WaterElectrolyzerInput"
+                                         || WaterElectrolyzer_Session.PerfLevel < 3;
+                        break;
+                    }
+                }
+            }
+            catch { }
+
             _initialized = true;
             NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME;
         }
@@ -67,6 +87,24 @@ namespace Phantombite_WaterElectrolyzer
             if (_electrolyzer == null) return;
             if (!_motor.IsWorking)     return;
 
+            // PerfLevel 3: Motor deaktivieren damit H2 nicht verloren geht
+            if (WaterElectrolyzer_Session.PerfLevel >= 3)
+            {
+                if (!_disabledByPerf)
+                {
+                    _disabledByPerf = true;
+                    _motor.Enabled  = false;
+                    Log("PerfLevel 3: Motor deaktiviert — kein H2-Verlust");
+                }
+                return;
+            }
+            else if (_disabledByPerf)
+            {
+                _disabledByPerf = false;
+                _motor.Enabled  = true;
+                Log("PerfLevel 0: Motor wieder aktiviert");
+            }
+
             _tick++;
             if (_tick < TICK_INTERVAL) return;
             _tick = 0;
@@ -76,6 +114,7 @@ namespace Phantombite_WaterElectrolyzer
 
             inventory.AddItems((MyFixedPoint)WATER_PER_SECOND,
                 MyObjectBuilderSerializer.CreateNewObject<MyObjectBuilder_Ore>(ITEM_SUBTYPE));
+            Log("Produktion: +" + WATER_PER_SECOND + " WaterFuel", 1);
         }
 
         private void FindPartner()
@@ -90,11 +129,13 @@ namespace Phantombite_WaterElectrolyzer
                 var gen = neighbour.FatBlock as IMyGasGenerator;
                 if (gen != null && gen.BlockDefinition.SubtypeId == ELECTROLYZER_SUBTYPE)
                 {
+                    Log("FindPartner: Elektrolyseur gefunden");
                     SetPartner(gen);
                     return;
                 }
             }
 
+            Log("FindPartner: kein Elektrolyseur gefunden");
             SetPartner(null);
         }
 
@@ -142,6 +183,17 @@ namespace Phantombite_WaterElectrolyzer
             if (_electrolyzer == null)           return;
             if (block.FatBlock != _electrolyzer) return;
             SetPartner(null);
+        }
+
+        private void Log(string msg, int level = 0)
+        {
+            try
+            {
+                MyLog.Default.WriteLineAndConsole("[PB.WaterElectrolyzer] [" + level + "] " + msg);
+                MyAPIGateway.Utilities.SendModMessage(LOG_CHANNEL,
+                    "LOG|" + MOD_NAME + "|" + level + "|WaterElectrolyzer_Motor|" + msg);
+            }
+            catch { }
         }
 
         public override void Close()
