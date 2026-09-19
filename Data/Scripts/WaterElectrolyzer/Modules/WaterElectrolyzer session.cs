@@ -26,6 +26,9 @@ namespace Phantombite_WaterElectrolyzer
 
         private int _logLevel = 0;
 
+        /// <summary>Aktuelles Log-Level (vom Core gesetzt) — auch für die Block-Logik.</summary>
+        public static int LogLevel { get; private set; } = 0;
+
         /// <summary>Statischer PerfLevel — von WaterElectrolyzer_MotorLogic gelesen.</summary>
         public static int PerfLevel { get; private set; } = 0;
 
@@ -65,7 +68,10 @@ namespace Phantombite_WaterElectrolyzer
                 {
                     int lvl;
                     if (int.TryParse(msg.Substring(9), out lvl))
+                    {
                         _logLevel = Math.Max(0, Math.Min(3, lvl));
+                        LogLevel  = _logLevel;
+                    }
                     Log("LOGLEVEL gesetzt: " + _logLevel, 1);
                     return;
                 }
@@ -106,6 +112,7 @@ namespace Phantombite_WaterElectrolyzer
                 if (MyAPIGateway.Utilities != null && MyAPIGateway.Multiplayer.IsServer)
                     MyAPIGateway.Utilities.UnregisterMessageHandler(MY_CHANNEL, OnCoreMessage);
                 PerfLevel = 0;
+                LogLevel  = 0;
             }
             catch (Exception ex)
             {

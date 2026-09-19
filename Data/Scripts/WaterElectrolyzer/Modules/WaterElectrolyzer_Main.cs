@@ -85,12 +85,13 @@ namespace Phantombite_WaterElectrolyzer
             }
 
             if (_electrolyzer == null) return;
-            if (!_motor.IsWorking)     return;
 
-            // PerfLevel 3: Motor deaktivieren damit H2 nicht verloren geht
+            // PerfLevel 3: Motor deaktivieren damit H2 nicht verloren geht.
+            // Muss VOR der IsWorking-Prüfung stehen: ein deaktivierter Motor arbeitet nicht,
+            // sonst würde er nach dem Abschalten nie wieder eingeschaltet.
             if (WaterElectrolyzer_Session.PerfLevel >= 3)
             {
-                if (!_disabledByPerf)
+                if (!_disabledByPerf && _motor.IsWorking)
                 {
                     _disabledByPerf = true;
                     _motor.Enabled  = false;
@@ -98,12 +99,14 @@ namespace Phantombite_WaterElectrolyzer
                 }
                 return;
             }
-            else if (_disabledByPerf)
+            if (_disabledByPerf)
             {
                 _disabledByPerf = false;
                 _motor.Enabled  = true;
-                Log("PerfLevel 0: Motor wieder aktiviert");
+                Log("PerfLevel unter 3: Motor wieder aktiviert");
             }
+
+            if (!_motor.IsWorking) return;
 
             _tick++;
             if (_tick < TICK_INTERVAL) return;
@@ -187,6 +190,7 @@ namespace Phantombite_WaterElectrolyzer
 
         private void Log(string msg, int level = 0)
         {
+            if (level > WaterElectrolyzer_Session.LogLevel) return;
             try
             {
                 MyLog.Default.WriteLineAndConsole("[PB.WaterElectrolyzer] [" + level + "] " + msg);
